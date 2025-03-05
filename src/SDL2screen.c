@@ -765,6 +765,7 @@ static void SDLQLKeyrowChg(int code, int press)
 #endif
 #define SDL_DEADKEY_2 180
 
+#if 0
 static struct SDLQLMap_f sdlqlmap_DE[] = {
 	{ MOD_WILD, SDLK_z, QL_Y },
 	{ MOD_WILD, SDLK_MINUS, QL_SS }, /* minus */
@@ -780,6 +781,69 @@ static struct SDLQLMap_f sdlqlmap_DE[] = {
 	{ MOD_WILD, 0x3C, 0x6D }, /* ^ */
 	/* Accent ^ and \ is 0x6D */
 
+	{ 0x0, 0x0, 0x0 }
+};
+#endif
+
+// shamelessly stolen from Swiss German and modified tofro
+// Note this is the MacOS map and needs to be modified for PCs
+static struct SDLQLMap_f sdlqlmap_DE [] = {
+	{ MOD_WILD, SDLK_z, 	QL_Y },					// Y	OK
+	{ MOD_WILD, SDLK_y, 	QL_Z },					// Z	OK
+	{ MOD_WILD, SDLK_MINUS, QL_SS }, 				// ß	OK
+	{ MOD_WILD, 0xE4, 	QL_QUOTE },				// Ä 	OK
+	{ MOD_WILD, 0xF6, 	QL_SEMICOLON }, 			// ö	OK
+	{ MOD_WILD, 0xFC, 	QL_LBRACKET }, 				// Ü 	OK
+	{ MOD_WILD, 0x3c, 	QL_BACKSLASH }, 			//
+	{ MOD_NONE, 0x23, 	QL_EQUAL }, 				// # 	OK
+	{ MOD_SHIFT,0x23, 	QL_EQUAL },				// ' 	OK
+	{ MOD_SHIFT,0xb4, 	(QL_SLASH)}, 				// ` 	NOK
+	{ MOD_NONE, 0x5e, 	(SWAP_SHIFT | SWAP_CNTRL | QL_6)},	// ^ 	NOK
+	{ MOD_SHIFT,0x5e, 	(SWAP_CNTRL | QL_Y)}, 			// °	OK
+
+	{ MOD_CTRL, SDLK_l,     (SWAP_SHIFT | SWAP_CNTRL | QL_2) }, // @
+
+
+	{ MOD_WILD, 0x2B, QL_RBRACKET }, /* + OK */
+	{ MOD_WILD, 0xDF, QL_MINUS }, /* ß OK */
+#if 0
+	{ MOD_NONE, 167, (SWAP_SHIFT | SWAP_CNTRL | QL_6) }, // ^
+	{ MOD_SHIFT, 167, (SWAP_CNTRL | QL_Z) }, // °
+	{ MOD_SHIFT, SDLK_1, QL_EQUAL }, // +
+	{ MOD_CTRL, SDLK_1, (SWAP_SHIFT | SWAP_CNTRL | QL_BACKSLASH) }, // |
+	{ MOD_SHIFT, SDLK_2, QL_QUOTE }, // "
+	{ MOD_CTRL, SDLK_2, (SWAP_SHIFT | SWAP_CNTRL | QL_2) }, // @
+	{ MOD_SHIFT, SDLK_3, QLSH_8 }, // *
+	{ MOD_CTRL, SDLK_3, (SWAP_SHIFT | SWAP_CNTRL | QL_3) }, // #
+	{ MOD_SHIFT, SDLK_4, (SWAP_CNTRL | QLSH_9) }, // ç
+	{ MOD_SHIFT, SDLK_6, QL_7 }, // &
+	{ MOD_SHIFT, SDLK_7, (SWAP_SHIFT | QL_SLASH) }, // slash
+	{ MOD_CTRL, SDLK_7, (SWAP_SHIFT | SWAP_CNTRL | QL_BACKSLASH) }, // |
+	{ MOD_SHIFT, SDLK_8, QL_9 }, // (
+	{ MOD_SHIFT, SDLK_9, QL_0 }, // )
+	{ MOD_SHIFT, SDLK_0, (SWAP_SHIFT | QL_EQUAL) }, // =
+	{ MOD_NONE, 39, QL_QUOTE }, // '
+	{ MOD_SHIFT, 39, QLSH_SLASH }, // ?
+	{ MOD_NONE, 94, (SWAP_SHIFT | QL_6) }, // ^
+	{ MOD_SHIFT, 94, (SWAP_CNTRL | QLSH_SLASH) }, // `
+	{ MOD_NONE, 252, (SWAP_CNTRL | QL_QUOTE) }, // ü
+	{ MOD_CTRL, 252, (QL_CTRL | QL_LBRACKET) }, // [
+	{ MOD_NONE, 168, (SWAP_SHIFT | QL_1) }, // !
+	{ MOD_SHIFT, 168, QLSH_QUOTE }, // ¨
+	{ MOD_CTRL, 168, (QL_CTRL | QL_RBRACKET) }, // ]
+	{ MOD_NONE, 246, (SWAP_CNTRL | SWAP_SHIFT | QL_4) }, // ö
+	{ MOD_NONE, 228, (SWAP_CNTRL | QL_ESCAPE) }, // ä
+	{ MOD_CTRL, 228, (SWAP_SHIFT | QL_CTRL | QL_LBRACKET) }, // {
+	{ MOD_NONE, 36, (SWAP_SHIFT | QL_4) }, // $
+	{ MOD_SHIFT, 36, (SWAP_SHIFT | QL_POUND) }, // £
+	{ MOD_CTRL, 36, (SWAP_SHIFT | QL_CTRL | QL_RBRACKET) }, // }
+	{ MOD_NONE, 60, (SWAP_SHIFT | QL_PERIOD) }, // <
+	{ MOD_SHIFT, 60, QL_COMMA }, // >
+	{ MOD_CTRL, 60, (QL_CTRL | QL_BACKSLASH) }, // bash
+	{ MOD_SHIFT, SDLK_PERIOD, QL_SEMICOLON }, // ;
+	{ MOD_SHIFT, SDLK_COMMA, (SWAP_SHIFT | QL_SEMICOLON) }, // :
+	{ MOD_NONE, SDLK_MINUS, QL_MINUS }, // -
+#endif
 	{ 0x0, 0x0, 0x0 }
 };
 
@@ -953,7 +1017,7 @@ static struct SDLQLMap sdlqlmap_default[] = { { SDLK_LEFT, QL_LEFT },
 void QLSDProcessKey(SDL_Keysym *keysym, int pressed)
 {
 	int i = 0;
-	// printf("Key %8x Scan %8x P: %i\n", keysym->sym, keysym->scancode, pressed); fflush(stdout);
+	printf("Key %8x Scan %8x P: %i\n", keysym->sym, keysym->scancode, pressed); fflush(stdout);
 
 	/* Handle extended cursor keys */
 	/* backspace maps to control left */
