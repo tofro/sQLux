@@ -1290,7 +1290,7 @@ static void setKeyboardLayout(void)
 			printf("Using DE_ch keymap.\n");
 	} else if (!strncasecmp("DE", kbd_string, 2)) {
 		// MacOS receives a specific keymap...
-		#if defined (__APPLE__ && __MACH__)
+		#if defined (__APPLE__) && defined(__MACH__)
 		sdlqlmap = sdlqlmap_DE_MacOS;
 		#else
 		sdlqlmap = sdlqlmap_DE;
