@@ -805,13 +805,13 @@ static struct SDLQLMap_f sdlqlmap_DE [] = {
 	{ MOD_WILD, 0xDF, 	QL_MINUS }, 				// ß OK */
 
 	// The following are MacOS-specific
-	{ MOD_ALT, SDLK_7, 	(SWAP_ALT | SWAP_CNTRL | QL_8) },	// |	OK
-	{ MOD_ALT, SDLK_5, 	(SWAP_ALT | SWAP_CNTRL | QL_9 )}, 	// [	OK
-	{ MOD_ALT, SDLK_6, 	(SWAP_ALT | SWAP_CNTRL | QL_0 )}, 	// ]	OK
-	{ MOD_ALT, SDLK_8, 	(SWAP_ALT | SWAP_CNTRL | QL_MINUS )}, 	// {	OK
-	{ MOD_ALT, SDLK_9, 	(SWAP_ALT | SWAP_CNTRL | QL_EQUAL )}, 	// }	OK
-	{ MOD_ALT, SDLK_n, 	(SWAP_CNTRL | QL_COMMA)},		// ~	OK
-	{ MOD_ALT, SDLK_l,      (SWAP_CNTRL | QL_BACKSLASH)}, 		// @	OK
+	{ MOD_ALT, SDLK_LESS, 	(SWAP_ALT | SWAP_CNTRL | QL_8) },	// |	OK
+	{ MOD_ALT, SDLK_8, 	(SWAP_ALT | SWAP_CNTRL | QL_9 )}, 	// [	OK
+	{ MOD_ALT, SDLK_9, 	(SWAP_ALT | SWAP_CNTRL | QL_0 )}, 	// ]	OK
+	{ MOD_ALT, SDLK_7, 	(SWAP_ALT | SWAP_CNTRL | QL_MINUS )}, 	// {	OK
+	{ MOD_ALT, SDLK_0, 	(SWAP_ALT | SWAP_CNTRL | QL_EQUAL )}, 	// }	OK
+	{ MOD_ALT, SDLK_PLUS, 	(SWAP_CNTRL | QL_COMMA)},		// ~	OK
+	{ MOD_ALT, SDLK_2,      (SWAP_CNTRL | QL_BACKSLASH)}, 		// @	OK
 
 	{ 0x0, 0x0, 0x0 }
 };
