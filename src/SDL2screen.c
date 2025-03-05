@@ -786,7 +786,7 @@ static struct SDLQLMap_f sdlqlmap_DE[] = {
 };
 #endif
 
-// Note this is the MacOS map and needs to be modified for PCs
+// Note this is the Windows keymap. Modified from MacOS with no test
 static struct SDLQLMap_f sdlqlmap_DE [] = {
 	// These should be valid for all platforms
 	{ MOD_WILD, SDLK_z, 	QL_Y },					// Y	OK
@@ -804,7 +804,7 @@ static struct SDLQLMap_f sdlqlmap_DE [] = {
 	{ MOD_WILD, 0x2B, 	QL_RBRACKET }, 				// + OK */
 	{ MOD_WILD, 0xDF, 	QL_MINUS }, 				// ß OK */
 
-	// The following are MacOS-specific
+	// The following are Windows-specific
 	{ MOD_ALT, SDLK_LESS, 	(SWAP_ALT | SWAP_CNTRL | QL_8) },	// |	OK
 	{ MOD_ALT, SDLK_8, 	(SWAP_ALT | SWAP_CNTRL | QL_9 )}, 	// [	OK
 	{ MOD_ALT, SDLK_9, 	(SWAP_ALT | SWAP_CNTRL | QL_0 )}, 	// ]	OK
@@ -816,6 +816,7 @@ static struct SDLQLMap_f sdlqlmap_DE [] = {
 	{ 0x0, 0x0, 0x0 }
 };
 
+// This is the MacOS keymap. Mostly identical with the Windows one with some exeptions
 static struct SDLQLMap_f sdlqlmap_DE_MacOS [] = {
 	// These should be valid for all platforms
 	{ MOD_WILD, SDLK_z, 	QL_Y },					// Y	OK
