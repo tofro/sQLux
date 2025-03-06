@@ -804,7 +804,7 @@ static struct SDLQLMap_f sdlqlmap_DE [] = {
 	{ MOD_WILD, 0x2B, 	QL_RBRACKET }, 				// + OK */
 	{ MOD_WILD, 0xDF, 	QL_MINUS }, 				// ß OK */
 
-	// The following are Windows-specific
+	// The following are Windows-specific (Alt-GR-based)
 	{ MOD_ALT, SDLK_LESS, 	(SWAP_ALT | SWAP_CNTRL | QL_8) },	// |	OK
 	{ MOD_ALT, SDLK_8, 	(SWAP_ALT | SWAP_CNTRL | QL_9 )}, 	// [	OK
 	{ MOD_ALT, SDLK_9, 	(SWAP_ALT | SWAP_CNTRL | QL_0 )}, 	// ]	OK
@@ -816,7 +816,7 @@ static struct SDLQLMap_f sdlqlmap_DE [] = {
 	{ 0x0, 0x0, 0x0 }
 };
 
-// This is the MacOS keymap. Mostly identical with the Windows one with some exeptions
+// This is the MacOS keymap. Mostly identical with the Windows one
 static struct SDLQLMap_f sdlqlmap_DE_MacOS [] = {
 	// These should be valid for all platforms
 	{ MOD_WILD, SDLK_z, 	QL_Y },					// Y	OK
@@ -835,14 +835,14 @@ static struct SDLQLMap_f sdlqlmap_DE_MacOS [] = {
 	{ MOD_WILD, 0xDF, 	QL_MINUS }, 				// ß OK */
 
 
-	// The following are MacOS-specific
+	// The following are MacOS-specific ("Option"-based)
 	{ MOD_ALT, SDLK_7, 	(SWAP_ALT | SWAP_CNTRL | QL_8) },	// |	OK
 	{ MOD_ALT, SDLK_5, 	(SWAP_ALT | SWAP_CNTRL | QL_9 )}, 	// [	OK
 	{ MOD_ALT, SDLK_6, 	(SWAP_ALT | SWAP_CNTRL | QL_0 )}, 	// ]	OK
 	{ MOD_ALT, SDLK_8, 	(SWAP_ALT | SWAP_CNTRL | QL_MINUS )}, 	// {	OK
 	{ MOD_ALT, SDLK_9, 	(SWAP_ALT | SWAP_CNTRL | QL_EQUAL )}, 	// }	OK
-	{ MOD_ALT, SDLK_n, 	(SWAP_CNTRL | QL_COMMA)},		// ~	OK
-	{ MOD_ALT, SDLK_l,      (SWAP_CNTRL | QL_BACKSLASH)}, 		// @	OK
+	{ MOD_ALT, SDLK_n, 	(SWAP_ALT | SWAP_CNTRL | QL_BACKSLASH)},// ~	OK
+	{ MOD_ALT, SDLK_l,      (SWAP_ALT | SWAP_CNTRL | QL_COMMA)}, 	// @	NOK
 
 	{ 0x0, 0x0, 0x0 }
 };

@@ -5,5 +5,9 @@
         "editor.insertSpaces": false,
         "editor.rulers": [80],
         "files.trimTrailingWhitespace": true
+    },
+    "files.associations": {
+        "dataSpace_in": "vasmstd",
+        "locale": "c"
     }
 }
