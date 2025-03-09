@@ -1018,10 +1018,10 @@ static struct SDLQLMap sdlqlmap_default[] = { { SDLK_LEFT, QL_LEFT },
 void QLSDProcessKey(SDL_Keysym *keysym, int pressed)
 {
 	int i = 0;
-	printf("Key %8x Scan %8x P: %i SH: %d ALT: %d CTRL: %d GRF: %d\n",
-		keysym->sym, keysym->scancode, pressed,
-	 	sdl_shiftstate, sdl_altstate, sdl_controlstate,
-		sdl_grfstate); fflush(stdout);
+	//printf("Key %8x Scan %8x P: %i SH: %d ALT: %d CTRL: %d GRF: %d\n",
+	//	keysym->sym, keysym->scancode, pressed,
+	// 	sdl_shiftstate, sdl_altstate, sdl_controlstate,
+	//	sdl_grfstate); fflush(stdout);
 
 	/* Handle extended cursor keys */
 	/* backspace maps to control left */
